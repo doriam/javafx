@@ -1,0 +1,4 @@
+1*BARBE*Rue des Vignes Paris*0123546789*10000
+2*FEVAL*Rue de Paris Lyon*0123785643*50000
+3*LOPEZ*Rue des Saints-Pères Paris*0145542398*100000
+4*OVIDE*Rue de l'Ile de France Cachan*0176239087*2000

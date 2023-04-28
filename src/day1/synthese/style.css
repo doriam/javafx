@@ -1,0 +1,13 @@
+#buttonRegister {
+        -fx-background-color: skyblue; -fx-textfill: white
+}
+
+#buttonClear {
+        -fx-background-color: red; -fx-textfill: white
+
+}
+
+.label{
+        -fx-font: normal bold 15px 'serif'
+}
+
