@@ -3,6 +3,7 @@ package day2.exercice2;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -58,16 +60,28 @@ public class Launcher extends Application {
         menuBar.getMenus().addAll(fichierMenu, editionMenu, aideMenu);
 
         HBox hbox1 = new HBox();
+        hbox1.setMinHeight(50);
+
         Label label = new Label();
 
         HBox hbox2 = new HBox();
 
+
+        hbox2.setAlignment(Pos.CENTER);
+
         Button button = new Button("Retourner");
+
+        GridPane gridPane = new GridPane();
+        gridPane.setPadding(new Insets(10, 10, 10, 10));
+        //Setting the vertical and horizontal gaps between the columns
+        gridPane.setVgap(10);
+        gridPane.setHgap(10);
+
 
         hbox1.getChildren().add(label);
         hbox2.getChildren().add(button);
 
-
+        hbox2.setAlignment(Pos.CENTER);
         ouvrirItem.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent ae) {
 
@@ -75,6 +89,7 @@ public class Launcher extends Application {
                 //String path = String.valueOf(fileChooser.showOpenDialog(stage));
                 String path = "src/day2/exercice2/employes.txt";
                 LesEmployes lesEmployes = new LesEmployes(path);
+
                 label.setText(lesEmployes.fabriqueChaine());
             } });
 
@@ -85,8 +100,11 @@ public class Launcher extends Application {
 
         BorderPane root = new BorderPane();
         root.setTop(menuBar);
-        root.setCenter(hbox1);
-        root.setCenter(hbox2);
+        root.setCenter(gridPane);
+
+        gridPane.add(hbox1, 0, 0);
+        gridPane.add(hbox2, 0, 8);
+        //root.setBottom(hbox2);
 
          scene2 = new Scene(root, 350, 200);
 
